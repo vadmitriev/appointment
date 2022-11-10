@@ -35,7 +35,7 @@ const historySlice = createSlice({
       state.isLoading = true;
     },
     loadResourcesSuccess: (state, action: PayloadAction<IResource[]>) => {
-      state.resources.push(...action.payload);
+      state.resources.concat(action.payload);
       state.isLoading = false;
     },
     loadResourcesError: (state, action: PayloadAction<string>) => {

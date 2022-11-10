@@ -6,3 +6,5 @@ interface HistoryPageProps {}
 export const HistoryPage: React.FC<HistoryPageProps> = () => {
   return <div>History</div>;
 };
+
+export default HistoryPage;

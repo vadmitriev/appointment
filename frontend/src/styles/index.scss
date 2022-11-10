@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+	--max-content-width: 970px;
+
+	--color-background: #fff; // #D3F0FB;
+	--color-font: black;
+
+	--main-color: black;
+	--secondary-color: #f3f6fd;
+
+	--btn-background: #71cff1;
+	--btn-hover: #646cff;
+
+	--link-shadow: #646cff;
+
+	--link-hover: #a7daec;
+
+	--loader-color: #3950cf;
+}
+
+html[data-theme="dark"] {
+	--color-background: black;
+	--color-font: white;
+
+	--main-color: #fff;
+	--secondary-color: #1d283c;
+
+	--btn-background: #5558ed;
+	--btn-hover: #7173eb;
+
+	--link-shadow: #6e6c91aa;
+
+	--link-hover: #686ae9;
+
+	--loader-color: #5064d4;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	background-color: var(--color-background);
+	color: var(--color-font);
+
+	transition: background-color .9s ease-in;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}

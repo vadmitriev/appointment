@@ -28,3 +28,5 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({
     </div>
   );
 };
+
+export default NotFoundPage;

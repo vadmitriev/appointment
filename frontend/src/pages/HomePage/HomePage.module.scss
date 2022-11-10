@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.title {
+		font-size: large;
+		font-weight: bold;
+		color: var(--color-font);
+		margin-bottom: 20px;
+	}
+
+	.imgBox {
+		display: flex;
+		height: 60vh;
+
+		min-width: 30vw;
+
+		position: relative;
+
+		box-shadow: 1px 1px 5px 2px var(--link-shadow);
+
+		img {
+			max-height: 100%;
+			min-width: 100%;
+			object-fit: cover;
+			vertical-align: bottom;
+		}
+	}
+}

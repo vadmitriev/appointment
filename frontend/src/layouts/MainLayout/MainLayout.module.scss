@@ -1,0 +1,39 @@
+.wrapper {
+	display: grid;
+	grid-template-columns: auto 90% auto;
+	grid-template-rows: 80px 1fr auto;
+
+	grid-template-areas:
+		"header header header"
+		". body ."
+		"footer footer footer";
+
+	row-gap: 15px;
+
+	min-height: 100vh;
+	min-width: 100vw;
+
+	background-color: var(--color-background);
+	color: var(--color-font);
+
+	transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+		transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.header {
+	grid-area: header;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+.body {
+	grid-area: body;
+}
+
+.footer {
+	grid-area: footer;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

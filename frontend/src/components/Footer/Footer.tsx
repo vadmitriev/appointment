@@ -8,7 +8,7 @@ type FooterProps = DetailedHTMLProps<
 
 export const Footer: React.FC<FooterProps> = ({ className, ...props }) => {
   return (
-    <footer className={className} {...props}>
+    <footer className={`${className} ${styles.footer}`} {...props}>
       <span>
         <a href="https://github.com/vadmitriev/" target="_new" rel="follow">
           Владимир Дмитриев

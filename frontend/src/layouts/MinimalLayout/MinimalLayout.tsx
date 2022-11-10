@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header, Footer } from '@/components';
-import styles from './MainLayout.module.scss';
+import styles from './MinimalLayout.module.scss';
 
 interface MinimalLayoutProps {}
 
