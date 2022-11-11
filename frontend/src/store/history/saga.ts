@@ -3,19 +3,27 @@ import { all, takeEvery, put, call, select } from 'redux-saga/effects';
 import { historyActions, HistoryState } from './historySlice';
 import HistoryService from '@/api/HistoryService';
 import { EventResponse, IEvent, ResourceResponse } from '@/interfaces';
+import { RootState } from '..';
+import { getItemsSlice, groupEvents } from '@/helpers';
 
-const getEvents = (state: HistoryState) => state.events;
+const getEvents = (state: RootState) => state.history.events;
+const getPage = (state: RootState) => state.history.page;
+const getItemsPerPage = (state: RootState) => state.history.itemsPerPage;
 
 function* loadEvents() {
   try {
     const response: AxiosResponse<EventResponse> = yield call(
       HistoryService.loadEvents,
     );
-    yield put(historyActions.loadEventsSuccess(response.data.items));
+
+    const sortedEvents = groupEvents(response.data.items);
+
+    yield put(historyActions.loadEventsSuccess(sortedEvents));
   } catch (e: unknown) {
     console.log(e);
     if (e instanceof AxiosError) {
-      yield put(historyActions.loadEventsError(e.response?.data));
+      yield put(historyActions.loadEventsError(e.message));
+      return;
     }
     yield put(historyActions.loadEventsError('Some error occured'));
   }
@@ -24,16 +32,25 @@ function* loadEvents() {
 function* loadResources() {
   try {
     const events: IEvent[] = yield select(getEvents);
-    const ids = events.map((e) => `${e.name}/${e.id}`);
+    const page: number = yield select(getPage);
+    const itemsPerPage: number = yield select(getItemsPerPage);
+
+    const eventsSlice = getItemsSlice(events, page, itemsPerPage);
+
+    const ids = eventsSlice.map((e) => `${e.name}/${e.id}`);
+    if (ids.length === 0) return;
+
     const response: AxiosResponse<ResourceResponse> = yield call(
       HistoryService.loadResources,
       ids,
     );
+
     yield put(historyActions.loadResourcesSuccess(response.data.items));
   } catch (e) {
     console.log(e);
     if (e instanceof AxiosError) {
-      yield put(historyActions.loadResourcesError(e.response?.data));
+      yield put(historyActions.loadResourcesError(e.message));
+      return;
     }
     yield put(historyActions.loadResourcesError('Some error occured'));
   }

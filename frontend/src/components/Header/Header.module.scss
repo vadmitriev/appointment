@@ -9,7 +9,6 @@
 	.left {
 		display: flex;
 		justify-content: flex-start;
-		// align-items: baseline;
 		position: relative;
 		padding: 10px 10px;
 
@@ -19,6 +18,13 @@
 			color: var(--link-hover);
 			filter: drop-shadow(0 0 2em var(--link-shadow));
 		}		
+	}
+
+	.middle {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 10px;
 	}
 
 	.right {

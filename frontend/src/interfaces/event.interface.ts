@@ -1,3 +1,5 @@
+import { IResource } from './resource.interface';
+
 export interface IEvent {
   id: string;
   appointmentId?: string;
@@ -9,3 +11,5 @@ export interface IEvent {
 export interface EventResponse {
   items: IEvent[];
 }
+
+export type IEventTableItem = IEvent & Omit<IResource, 'id'>;

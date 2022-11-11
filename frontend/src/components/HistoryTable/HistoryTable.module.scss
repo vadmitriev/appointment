@@ -1,0 +1,40 @@
+.wrapper {
+	.loader {
+		position: fixed;
+		top: 40%;
+		left: 50%;
+	}
+	.table {
+		.head {
+
+		}
+
+		.AllergyIntolerance {
+			background-color: #ffbbd9;
+		}
+		.Appointment {
+			background-color: #bac1f8;
+		}
+		.CarePlan {
+			background-color: #e6c8ea;
+		}
+		.Condition {
+			background-color: #d9ebbb;
+		}
+		.Diagnosis {
+			background-color: #f9e2da;
+		}
+		.Immunization {
+			background-color: #98ffb9;
+		}
+		.MedicationStatement {
+			background-color: #e1b4ee;
+		}
+		.Observation {
+			background-color: #98eaff;
+		}
+		.Procedure {
+			background-color: #ff9898;
+		}
+	}
+}

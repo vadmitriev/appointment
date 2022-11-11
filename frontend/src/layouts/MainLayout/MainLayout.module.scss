@@ -30,6 +30,8 @@
 
 .body {
 	grid-area: body;
+	min-width: 370px;
+	max-width: 970px;
 }
 
 .footer {

@@ -1,24 +1,35 @@
 import { IEvent, IResource } from '@/interfaces';
-import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface HistoryState {
   isLoading: boolean;
   events: IEvent[];
   resources: IResource[];
   error: string | null;
+  page: number;
+  itemsPerPage: number;
 }
 
 const initialState: HistoryState = {
-  isLoading: false,
+  isLoading: true,
   events: [],
   resources: [],
   error: null,
+  page: 0,
+  itemsPerPage: 30,
 };
 
 const historySlice = createSlice({
   name: 'history',
   initialState,
   reducers: {
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    setItemsPerPage: (state, action: PayloadAction<number>) => {
+      state.itemsPerPage = action.payload;
+    },
+
     loadEvents: (state) => {
       state.isLoading = true;
     },

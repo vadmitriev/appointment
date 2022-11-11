@@ -32,8 +32,10 @@ export const Header: React.FC<HeaderProps> = ({ className, ...props }) => {
       <div className={styles.left} onClick={handleClick}>
         <img src={mainIcon} alt="main icon" />
       </div>
-      <div className={styles.right}>
+      <div className={styles.middle}>
         <NavBar />
+      </div>
+      <div className={styles.right}>
         <div className={styles.theme} onClick={handleTheme}>
           <img
             className={styles.icon}
