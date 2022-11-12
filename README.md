@@ -23,8 +23,9 @@ git clone https://github.com/vadmitriev/appointment
 ```
 
 ```console
-cd appointment
+cd appointment/frontend
 cp env.sample .env
+cd ..
 ```
 
 ```console
