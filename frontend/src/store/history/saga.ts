@@ -1,6 +1,6 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import { all, takeEvery, put, call, select } from 'redux-saga/effects';
-import { historyActions, HistoryState } from './historySlice';
+import { historyActions } from './historySlice';
 import HistoryService from '@/api/HistoryService';
 import { EventResponse, IEvent, ResourceResponse } from '@/interfaces';
 import { RootState } from '..';
@@ -20,7 +20,7 @@ function* loadEvents() {
 
     yield put(historyActions.loadEventsSuccess(sortedEvents));
   } catch (e: unknown) {
-    console.log(e);
+    console.error(e);
     if (e instanceof AxiosError) {
       yield put(historyActions.loadEventsError(e.message));
       return;
@@ -47,7 +47,7 @@ function* loadResources() {
 
     yield put(historyActions.loadResourcesSuccess(response.data.items));
   } catch (e) {
-    console.log(e);
+    console.error(e);
     if (e instanceof AxiosError) {
       yield put(historyActions.loadResourcesError(e.message));
       return;

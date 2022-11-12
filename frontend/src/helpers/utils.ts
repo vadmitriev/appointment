@@ -9,4 +9,21 @@ export const getItemsSlice = <T>(
   return items.slice(startIndex, endIndex);
 };
 
-export const sortDates = (d1: Date, d2: Date) => {};
+export const formatDate = (date: string) => {
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  const d = new Date(date);
+  return `${monthNames[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+};

@@ -1,16 +1,14 @@
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from './HistoryPage.module.scss';
 
 import { historyActions } from '@/store/history/historySlice';
-import { HistoryTable, Loader } from '@/components';
+import { HistoryTable, Loader, ScrollToTop } from '@/components';
 
 interface HistoryPageProps {}
 
 export const HistoryPage: React.FC<HistoryPageProps> = () => {
-  const { error, isLoading, events } = useAppSelector(
-    (state) => state.history,
-  );
+  const { error, isLoading, events } = useAppSelector((state) => state.history);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -19,10 +17,12 @@ export const HistoryPage: React.FC<HistoryPageProps> = () => {
 
   return (
     <div className={styles.wrapper}>
-      {isLoading && <Loader />}
+      <div className={styles.loader}>{isLoading && <Loader />}</div>
+
       <div className={styles.content}>
         {events.length === 0 && !error && "It looks like there's nothing here"}
         {error ? <div>{error}</div> : <HistoryTable />}
+        <ScrollToTop />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ export interface IEvent {
   appointmentId?: string;
   name: string;
   resource: string;
-  date: Date;
+  date: string;
 }
 
 export interface EventResponse {

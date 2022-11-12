@@ -8,7 +8,7 @@
 	--max-content-width: 970px;
 
 	--color-background: #fff; // #D3F0FB;
-	--color-font: black;
+	--color-font: $979797;
 
 	--main-color: black;
 	--secondary-color: #f3f6fd;
@@ -21,6 +21,8 @@
 	--link-hover: #a7daec;
 
 	--loader-color: #3950cf;
+
+	--gray-color: #ACACAC;
 }
 
 html[data-theme="dark"] {

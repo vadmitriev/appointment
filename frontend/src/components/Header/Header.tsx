@@ -36,7 +36,11 @@ export const Header: React.FC<HeaderProps> = ({ className, ...props }) => {
         <NavBar />
       </div>
       <div className={styles.right}>
-        <div className={styles.theme} onClick={handleTheme}>
+        <div
+          className={styles.theme}
+          onClick={handleTheme}
+          title="Change theme"
+        >
           <img
             className={styles.icon}
             src={theme === 'light' ? sunIcon : moonIcon}

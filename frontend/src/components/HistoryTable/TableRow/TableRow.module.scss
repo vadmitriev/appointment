@@ -1,0 +1,64 @@
+.row {
+
+	&.first {
+		border-top: 1px solid var(--gray-color);
+		color: var(--color-font);
+	}
+
+	.event {
+		border: 0.5px solid #808080;
+		padding: 5px;
+		border-radius: 5px;
+	}
+
+	.details {
+
+	}
+
+	.code {
+
+	}
+
+	.date {
+		color: var(--gray-color);
+		&.first {
+			color: var(--color-font);
+		}
+	}
+
+	.Appointment {
+		background-color: #b8c0ee;
+	}
+
+	.Observation {
+		background-color: #9fe7fb;
+	}
+
+	.Condition {
+		background-color: #d9edb7;
+	}
+
+	.Allergy {
+		background-color: #fbc1d9;
+	}
+
+	.Medication {
+		background-color: #b5ecd8;
+	}
+
+	.Diagnosis {
+		background-color: #f8dfd7;
+	}
+
+	.CarePlan {
+		background-color: #ecc2f1;
+	}
+	
+	.Immunization {
+		background-color: #98ffb9;
+	}
+	
+	.Procedure {
+		background-color: #ff9898;
+	}		
+}

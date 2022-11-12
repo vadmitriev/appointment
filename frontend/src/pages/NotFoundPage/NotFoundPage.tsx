@@ -20,10 +20,8 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div className={styles.card}>
-          <div className={styles.text}>{text}</div>
-          <Button onClick={handleClick}>На главную</Button>
-        </div>
+        <div className={styles.text}>{text}</div>
+        <Button onClick={handleClick}>На главную</Button>
       </div>
     </div>
   );

@@ -1,40 +1,62 @@
 .wrapper {
-	.loader {
-		position: fixed;
-		top: 40%;
-		left: 50%;
-	}
 	.table {
-		.head {
+		min-width: 100%;
+		font-weight: 600;
 
+		thead {
+			text-align: left;
+			font-size: 0.85em;
+			color: var(--gray-color);
+
+			@media (max-width: 767px) {
+				display: none;
+			}			
 		}
 
-		.AllergyIntolerance {
-			background-color: #ffbbd9;
-		}
-		.Appointment {
-			background-color: #bac1f8;
-		}
-		.CarePlan {
-			background-color: #e6c8ea;
-		}
-		.Condition {
-			background-color: #d9ebbb;
-		}
-		.Diagnosis {
-			background-color: #f9e2da;
-		}
-		.Immunization {
-			background-color: #98ffb9;
-		}
-		.MedicationStatement {
-			background-color: #e1b4ee;
-		}
-		.Observation {
-			background-color: #98eaff;
-		}
-		.Procedure {
-			background-color: #ff9898;
-		}
+		&.row {
+			display: grid;
+			padding: 10px 0;
+			min-height: 2.5em;
+			line-height: 1.3em;
+			align-content: center;
+			grid-template-columns:
+				// 25% 40% 10% 25%;
+				minmax(160px, 1.2fr)
+				minmax(150px, 4.4fr)
+				minmax(100px, 1.17fr)
+				minmax(100px, 1.05fr);
+
+			@media (max-width: 767px) {
+				gap: 10px;
+				grid-template-columns:
+					minmax(100px, 4.2fr)
+					minmax(100px, 0.95fr);
+			}
+			border-bottom: 0.5px solid var(--gray-color);
+
+			td {
+				font-size: 0.9em;
+				color: #797878;
+
+				// width: min-content;
+				padding: 0 5px;
+				border-radius: 5px;
+			
+
+				@media (max-width: 768px) {
+					.code, .date {
+						text-align: right;
+					}
+					.details {
+						grid-column: 1;
+						grid-row: 2;
+					}
+					.date {
+						grid-column: 2;
+						grid-row: 1;
+					}
+				}
+			}	
+		}		
 	}
 }
