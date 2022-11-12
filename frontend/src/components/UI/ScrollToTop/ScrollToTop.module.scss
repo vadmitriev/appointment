@@ -1,0 +1,20 @@
+.btn {
+	width: 30px;
+	height: 30px;
+
+	position: fixed;
+	cursor: pointer;
+	padding: 1rem 2 rem;
+	font-size: 20px;
+	bottom: 40px;
+	right: 40px;
+	
+	background-color: var(--color-font);
+	text-align: center;
+	border-radius: 50%;
+
+	&:hover {
+		-webkit-transform: scale(1.2);
+		filter: drop-shadow(0.1rem 0.1rem 0.4rem var(--link-shadow));
+	}
+}
