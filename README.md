@@ -17,9 +17,6 @@
 - Redux toolkit
 - Redux-Saga
 
-## Демо
-Посмотреть можно по ссылке: <a href="https://appointmentpage.herokuapp.com/">https://appointmentpage.herokuapp.com/</a>  
-
 ## Установка
 ```console
 git clone https://github.com/vadmitriev/appointment
