@@ -1,5 +1,6 @@
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import styles from './Button.module.scss';
+import cn from 'classnames';
 
 type ButtonProps = DetailedHTMLProps<
   HTMLAttributes<HTMLButtonElement>,
@@ -12,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <button className={`${className} ${styles.btn}`} {...props}>
+    <button className={cn(className, styles.btn)} {...props}>
       {children}
     </button>
   );

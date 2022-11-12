@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { sortBy } from 'lodash';
 import { IEvent, IEventTableItem, IResource } from '@/interfaces';
 
 export const groupEvents = (events: IEvent[]): IEvent[] => {
@@ -22,7 +22,7 @@ export const groupEvents = (events: IEvent[]): IEvent[] => {
 
   arr.length = 0;
 
-  _.sortBy(
+  sortBy(
     Object.keys(groupedEvents).map((key) => {
       const firstItem: IEvent = groupedEvents[key][0];
       return { date: firstItem?.date, eventId: key };
@@ -31,7 +31,7 @@ export const groupEvents = (events: IEvent[]): IEvent[] => {
   )
     .reverse()
     .forEach((item) => {
-      const sortedEvents = _.sortBy(
+      const sortedEvents = sortBy(
         groupedEvents[item.eventId],
         (item) => item.date,
       )

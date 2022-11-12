@@ -16,7 +16,7 @@ const initialState: HistoryState = {
   resources: [],
   error: null,
   page: 0,
-  itemsPerPage: 30,
+  itemsPerPage: 15,
 };
 
 const historySlice = createSlice({

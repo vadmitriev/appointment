@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { IEventTableItem } from '@/interfaces';
 import styles from './TableRow.module.scss';
 import { formatDate } from '@/helpers';
+import cn from 'classnames';
+import { capitalize } from 'lodash';
 
 interface TableRowProps {
   rowClassName: string;
@@ -10,7 +12,7 @@ interface TableRowProps {
   isFirstItem: boolean;
 }
 
-export const TableRow: React.FC<TableRowProps> = ({
+const TableRow: React.FC<TableRowProps> = ({
   rowClassName,
   item,
   isFirstItem,
@@ -21,34 +23,42 @@ export const TableRow: React.FC<TableRowProps> = ({
         .replace('AllergyIntolerance', 'Allergy')
     : '';
 
-  const rowClass = `${rowClassName} ${styles.row} ${
-    isFirstItem && styles.first
-  }`;
+  const trClass = cn(rowClassName, styles.row, {
+    [styles.first]: isFirstItem,
+  });
 
-  const valuesText = item.values && item.values.length > 0;
-  item.values?.map((value) =>
-    typeof value === 'string' ? `, ${value}` : `${value.value} ${value.unit}`,
-  );
+  const tdEventClass = cn(styles.event, {
+    [styles[formattedName]]: isFirstItem,
+    [styles.empty]: formattedName === '',
+  });
+
+  const detailsText =
+    item.details && item.details.length > 200
+      ? item.details.slice(0, 200) + '...'
+      : item.details;
+
+  const valuesText =
+    item.values &&
+    item.values.length > 0 &&
+    item.values?.map((value) =>
+      typeof value === 'string'
+        ? `: ${value}`
+        : `: ${value.value} ${value.unit}`,
+    );
 
   return (
-    <tr className={rowClass}>
-      <td
-        className={
-          isFirstItem ? `${styles.event} ${styles[formattedName]}` : ''
-        }
-      >
-        {formattedName}
-      </td>
+    <tr className={trClass}>
+      <td className={tdEventClass}>{formattedName}</td>
       <td className={styles.details}>
-        {item.details && item.details.length > 200
-          ? item.details.slice(0, 200) + '...'
-          : item.details}
+        {capitalize(detailsText)}
         {valuesText}
       </td>
       <td className={styles.code}>{item.code}</td>
-      <td className={`${styles.date} ${isFirstItem && styles.first}`}>
+      <td className={cn(styles.date, { [styles.first]: isFirstItem })}>
         {formatDate(item.date)}
       </td>
     </tr>
   );
 };
+
+export default memo(TableRow);

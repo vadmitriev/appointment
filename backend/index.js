@@ -23,14 +23,11 @@ app.post('/resources', (req, res) => {
 	const data = JSON.parse(fs.readFileSync('./data/resources.json'));
 	const body = req.body;
 
-	console.log('body.ids', body.ids);
-
 	let result = [];
 
 	if (body && body.ids) {
 		for (const id of body.ids) {
 			const found = findById(data, id);
-			console.log('id', id, 'found', found);
 
 			if (found) {
 				result.push(found);

@@ -25,11 +25,11 @@ const Router = () => {
           <Route element={<MinimalLayout />}>
             <Route
               path={PUBLIC_ROUTES.NOT_FOUND}
-              element={<NotFound text="Страница не найдена" />}
+              element={<NotFound text="Page not found" />}
             />
             <Route
               path={PUBLIC_ROUTES.ERROR}
-              element={<NotFound text="Произошла ошибка" />}
+              element={<NotFound text="Some error occured" />}
             />
           </Route>
         </Routes>

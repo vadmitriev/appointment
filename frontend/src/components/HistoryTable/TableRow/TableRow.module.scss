@@ -1,22 +1,50 @@
 .row {
-
 	&.first {
 		border-top: 1px solid var(--gray-color);
 		color: var(--color-font);
 	}
 
 	.event {
-		border: 0.5px solid #808080;
-		padding: 5px;
-		border-radius: 5px;
+		&:not(&.empty) {
+			border: 0.5px solid #808080;
+			padding: 5px;
+			border-radius: 5px;
+
+			width: fit-content;
+		}
 	}
 
-	.details {
+	@media (max-width: 768px) {
+		.event.empty {
+			display: none;
+		}
 
-	}
+		.code, .date {
+			text-align: right;
 
-	.code {
+			&:not(&.first) {
+				color: var(--gray-color);
+			}
+		}
 
+		.details {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		.code {
+			grid-column: 2;
+			grid-row: 2;
+		}
+
+		.date {
+			grid-column: 2;
+			grid-row: 1;
+
+			&:not(&.first) {
+				display: none;
+			}
+		}
 	}
 
 	.date {

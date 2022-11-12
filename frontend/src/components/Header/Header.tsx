@@ -4,6 +4,7 @@ import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Header.module.scss';
+import cn from 'classnames';
 
 import sunIcon from '@/assets/icons/sun.svg';
 import moonIcon from '@/assets/icons/moon.svg';
@@ -28,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ className, ...props }) => {
   };
 
   return (
-    <div className={`${className} ${styles.header}`} {...props}>
+    <div className={cn(className, styles.header)} {...props}>
       <div className={styles.left} onClick={handleClick}>
         <img src={mainIcon} alt="main icon" />
       </div>

@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Loader } from '@/components';
 import { formTableData, getItemsSlice } from '@/helpers';
 import styles from './HistoryTable.module.scss';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { historyActions } from '@/store/history/historySlice';
 import { throttle } from 'lodash';
-import { TableRow } from './TableRow/TableRow';
+import TableRow from './TableRow/TableRow';
 import { IEventTableItem } from '@/interfaces';
 
 interface HistoryTableProps {}
@@ -82,7 +81,7 @@ export const HistoryTable: React.FC<HistoryTableProps> = () => {
               item.appointmentId && item.resource === prevItem?.resource;
             return (
               <TableRow
-                key={item.id}
+                key={`${item.resource}/${item.id}/${new Date()}`}
                 rowClassName={styles.row}
                 item={item}
                 isFirstItem={!isSameGroup}
