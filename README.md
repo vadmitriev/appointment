@@ -18,7 +18,7 @@
 - Redux-Saga
 
 ## Демо
-Посмотреть можно по ссылке: <a href="https://appointment.herokuapp.com">https://appointment.herokuapp.com</a>  
+Посмотреть можно по ссылке: <a href="https://appointmentpage.herokuapp.com/">https://appointmentpage.herokuapp.com/</a>  
 
 ## Установка
 ```console
@@ -26,7 +26,7 @@ git clone https://github.com/vadmitriev/appointment
 ```
 
 ```console
-cd contacts
+cd appointment
 cp env.sample .env
 ```
 

@@ -1,1 +1,20 @@
-{}
+{
+	"author": {
+		"name": "Vladimir Dmitriev",
+		"email": "v.a.dmitriev123@gmail.com"
+	},
+	"engines": {
+		"node": "16.16.0"
+	},
+	"name": "appointment",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"frontend": "cd frontend && npm start",
+		"api": "cd backend && npm run dev",
+		"dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\""
+	},
+	"dependencies": {
+		"concurrently": "^7.3.0"
+	}
+}

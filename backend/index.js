@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const port = 5010;
@@ -9,10 +10,6 @@ const port = 5010;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/', (req, res) => {
-	res.send('Hello World!');
-});
 
 app.post('/events', (req, res) => {
 	let data = JSON.parse(fs.readFileSync('./data/events.json'));
@@ -51,4 +48,4 @@ function findById(array, id) {
 	return result;
 }
 
-app.listen(port, () => console.log(`Listening http://localhost:${port}!`));
+app.listen(port, () => console.log(`Listening on port ${port}!`));
