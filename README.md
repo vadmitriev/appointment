@@ -25,6 +25,10 @@ git clone https://github.com/vadmitriev/appointment
 ```console
 cd appointment/frontend
 cp env.sample .env
+npm install
+cd ..  
+cd backend  
+npm install  
 cd ..
 ```
 
