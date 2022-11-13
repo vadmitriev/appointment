@@ -8,11 +8,11 @@ import ArrowIcon from '@/assets/icons/arrow.svg';
 import styles from './ScrollToTop.module.scss';
 
 type ScrollToTopProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
 >;
 
-export const ScrollToTop: React.FC<ScrollToTopProps> = () => {
+export const ScrollToTop: React.FC<ScrollToTopProps> = ({ ...props }) => {
   const [showTopBtn, setShowTopBtn] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +40,7 @@ export const ScrollToTop: React.FC<ScrollToTopProps> = () => {
   }
 
   return (
-    <div className={styles.btn} onClick={goToTop}>
+    <div className={styles.btn} onClick={goToTop} {...props}>
       <img src={ArrowIcon} alt="To Top" />
     </div>
   );
